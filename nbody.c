@@ -7,7 +7,6 @@
 #include "planets.h"
 #include "compute.h"
 
-// represents the objects in the system.  Global variables
 vector3 *hVel, *d_hVel;
 vector3 *hPos, *d_hPos;
 double *mass;
@@ -16,6 +15,7 @@ double *mass;
 //Parameters: numObjects: number of objects to allocate
 //Returns: None
 //Side Effects: Allocates memory in the hVel, hPos, and mass global variables
+
 void initHostMemory(int numObjects)
 {
 	hVel = (vector3 *)malloc(sizeof(vector3) * numObjects);
@@ -27,6 +27,8 @@ void initHostMemory(int numObjects)
 //Parameters: None
 //Returns: None
 //Side Effects: Frees the memory allocated to global variables hVel, hPos, and mass.
+
+
 void freeHostMemory()
 {
 	free(hVel);
@@ -39,6 +41,7 @@ void freeHostMemory()
 //Parameters: None
 //Returns: None
 //Fills the first 8 entries of our system with an estimation of the sun plus our 8 planets.
+
 void planetFill(){
 	int i,j;
 	double data[][7]={SUN,MERCURY,VENUS,EARTH,MARS,JUPITER,SATURN,URANUS,NEPTUNE};
@@ -56,6 +59,7 @@ void planetFill(){
 //				count: The number of random objects to put into our system
 //Returns: None
 //Side Effects: Fills count entries in our system starting at index start (0 based)
+
 void randomFill(int start, int count)
 {
 	int i, j, c = start;
@@ -74,6 +78,7 @@ void randomFill(int start, int count)
 //Parameters: 	handle: A handle to an open file with write access to prnt the data to
 //Returns: 		none
 //Side Effects: Modifies the file handle by writing to it.
+
 void printSystem(FILE* handle){
 	int i,j;
 	for (i=0;i<NUMENTITIES;i++){
