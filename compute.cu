@@ -1,3 +1,4 @@
+//Angel Jose and Samita Bomasamudram
 #include <stdlib.h>
 #include <math.h>
 #include "vector.h"
@@ -68,9 +69,6 @@ __global__ void nbody_kernel(vector3* d_pos, vector3* d_vel, double* d_mass, int
 extern "C" void compute() {
     vector3 *dev_pos, *dev_vel;
     double *dev_mass;
-    //double *device_mass;
-    //size_t vector_size = NUMENTITIES * sizeof(vector3);
-    //size_t mass_size = NUMENTITIES * sizeof(double);
     size_t size_vec = NUMENTITIES * sizeof(vector3);
     size_t size_mass = NUMENTITIES * sizeof(double);
     cudaError_t err;
