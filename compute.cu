@@ -7,8 +7,6 @@
 #include <cuda_runtime.h>
 #include "config.h"
 
-
-
 __global__ void nbody_kernel(vector3* d_pos, vector3* d_vel, double* d_mass, int numEntities) {
     
     int i = blockIdx.x * blockDim.x + threadIdx.x;
